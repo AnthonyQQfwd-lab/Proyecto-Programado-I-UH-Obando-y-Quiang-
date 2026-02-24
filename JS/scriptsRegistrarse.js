@@ -1,6 +1,32 @@
 import { createUser } from "../Services/ServicesUsuarios.js";
 
+
+const btnRegistrar = document.getElementById("btnRegistrar")
+const nombre = document.getElementById("nombre");
+const telefono = document.getElementById("telefono");
+const correo = document.getElementById("correo");
+const password = document.getElementById("password");
+
+btnRegistrar.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    if( nombre.toLowerCase().trim() == "" ||
+        telefono.trim() == "" || 
+        correo.toLowerCase().trim() == "" ||
+        password.toLowerCase().trim() == "")
+    {return}
+
+    
+
+
+    createUser(nombre.value, telefono.value, correo.value, password.value)
+
+})
+
+
+/*
 document.getElementById("registerForm").addEventListener("submit", function(e) {
+    
     e.preventDefault();
 
     const nombre = document.getElementById("nombre").value;
@@ -19,7 +45,7 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
     }
 });
 
-/*
+ 
 document.getElementById("registerForm").addEventListener("submit", function (e) {
 
     e.preventDefault();
