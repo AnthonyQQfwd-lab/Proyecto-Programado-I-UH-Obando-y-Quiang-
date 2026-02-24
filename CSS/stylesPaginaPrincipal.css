@@ -1,0 +1,23 @@
+.logo-navbar {
+    height: 50px;   
+    width: auto;
+}
+
+.panel-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+
+.panel-img {
+    border-radius: 2%;
+    width: 100%;
+    max-width: 900px; 
+    height: auto; 
+    display: block;
+}
+
+.highlight {
+    color: #ff6a00; 
+}
+

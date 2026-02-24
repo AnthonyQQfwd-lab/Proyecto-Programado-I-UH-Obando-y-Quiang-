@@ -1,6 +1,7 @@
 const btnLogin = document.getElementById("btnLogin");
 const correo = document.getElementById("email");
 const password = document.getElementById("password");
+
 btnLogin.addEventListener("click", function () {
 
 
@@ -10,11 +11,11 @@ btnLogin.addEventListener("click", function () {
     console.log(correoValue)
     console.log(passwordValue)
     // Traer usuarios guardados
-    const users = JSON.parse(localStorage.getItem("usuariosDB")) || [];
+    const usuarios = JSON.parse(localStorage.getItem("usuariosDB")) || [];
 
  
-    const usuarioEncontrado = users.find(
-        user => user.correo === correoValue  && user.password === passwordValue
+    const usuarioEncontrado = usuarios.find(
+        usuario => usuario.correo === correoValue  && usuario.password === passwordValue
     );
     console.log(usuarioEncontrado)
     if (usuarioEncontrado) {
@@ -23,7 +24,7 @@ btnLogin.addEventListener("click", function () {
         localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
 
         alert("Login correcto");
-        window.location.href = "Servicios.html";
+        window.location.href = "PaginaPrincipal.html";
 
     } else {
         alert("Credenciales incorrectas");
