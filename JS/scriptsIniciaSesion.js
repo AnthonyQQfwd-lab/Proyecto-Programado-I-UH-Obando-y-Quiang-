@@ -1,22 +1,26 @@
 const btnLogin = document.getElementById("btnLogin");
-
+const correo = document.getElementById("email");
+const password = document.getElementById("password");
 btnLogin.addEventListener("click", function () {
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
 
-    // Traer usuarios guardados
-    const users = JSON.parse(localStorage.getItem("usuarios")) || [];
-
+    const correoValue = correo.value.toLowerCase().trim(); 
+    const passwordValue = password.value.trim();
     
-    const userEncontrado = users.find(
-        user => user.correo === email && user.password === password
-    );
+    console.log(correoValue)
+    console.log(passwordValue)
+    // Traer usuarios guardados
+    const users = JSON.parse(localStorage.getItem("usuariosDB")) || [];
 
-    if (userEncontrado) {
+ 
+    const usuarioEncontrado = users.find(
+        user => user.correo === correoValue  && user.password === passwordValue
+    );
+    console.log(usuarioEncontrado)
+    if (usuarioEncontrado) {
 
         // Guardar sesión activa
-        localStorage.setItem("usuarioActivo", JSON.stringify(userEncontrado));
+        localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
 
         alert("Login correcto");
         window.location.href = "Servicios.html";

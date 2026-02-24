@@ -1,20 +1,19 @@
-var usuarios = [];
+var usuariosDB = JSON.parse(localStorage.getItem("usuariosDB") || "[]");
 
 
 
-function createUser(nombre, telefono, correo, password) {
-    const nuevoUsuario = {
-        nombre: nombre,
-        telefono: telefono,
-        correo: correo,
-        password: password
-    };
-
-    usuarios.push(nuevoUsuario);
-    console.log(nuevoUsuario)
-    console.log(usuarios)
-    return usuarios;
+// Crear usuario y almacenarlo
+function createUser(usuarioNuevo) {
+    
+    usuariosDB.push(usuarioNuevo);
+    localStorage.setItem("usuariosDB", JSON.stringify(usuariosDB));
+    return usuarioNuevo;
 }
 
-export {createUser}
+//geenra un ID random 
+function generarID() {
+    return crypto.randomUUID();
+}
+
+export {createUser, generarID}
 
